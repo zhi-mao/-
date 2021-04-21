@@ -42,6 +42,66 @@
         tel | 定义输入电话号码和字段
         search | 用于搜索域
         range | 一个范围内数字值的输入域
-
+    - 新增了5个表单元素
+      标签 | 描述
+      :-: | :-:
+      &#60;datalist&#62; | 用户会在输入数据时看到预定义选项的下拉列表
+      &#60;progress&#62; | 进度条，展示连接、下载进度
+      &#60;meter&#62; | 刻度值，用于某些计量，如温度、重量等
+      &#60;keygen&#62; | 提供一种验证用户的可靠方法，生成一个公钥和私钥
+      &#60;output&#62; | 用于不同类型的输出
+    - 新增表单属性
+      属性 | 描述
+      :-:|:-:
+      placeholder | 输入框默认提示文字
+      required | 要求输入的内容是否可为空
+      pattern | 描述一个正则表达式验证输入的值
+      min/max | 设置元素最小/最大值
+      step | 为输入域规定合法的数字间隔
+      height/width | 用于image类型&#60;input&#62;标签图像高度/宽度
+      autofocus | 规定在页面加载时，域自动获得焦点
+      multiple | 规定&#60;input&#62;元素中可选择多个值
+    - 和h5关系
+      html5是web开发的HTML规范，h5可以说是移动端的ppt
 
 3. 你是如何理解 HTML 语义化的
+    - 在没有css的情况下，页面也能呈现出很好的页面结构
+    - 增强用户体验
+    - 有利于SEO
+    - 方便其他设备解析（如屏幕阅读器、盲人阅读器、移动设备）
+
+4. meta viewport是做什么用的？怎么写？
+    - meta标签可以提供有关页面的元信息
+    - 使用meta viewport可以很方便的在不同屏幕尺寸的手机上对内容和布局进行控制
+    - ```
+      <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">	
+      ```
+    - device-width是设备最理想的viewport宽度，user-scalable是指是否允许用户手动缩放页面initial-scale指初始化缩放比例
+
+5. HTML和XHTML有什么区别？
+    - XHTML 元素必须被正确地嵌套。
+    - XHTML 元素必须被关闭。
+    - XHTML 标签名必须用小写字母。
+    - XHTML 文档必须拥有根元素。
+
+6. 使用data-*属性有什么用
+    - 可以嵌入自定义数据，使用dataset或getAttribute获取值
+
+7. &#60;script&#62;、&#60;script async&#62;&#60;script defer&#62;的区别
+    - 直接使用script的话，HTML会按照顺序来加载并执行脚本，会阻塞dom渲染
+    - async会异步执行
+    - defer会在页面加载完毕后执行
+
+8. 白屏和FOUC是什么？为什么通常推荐将CSS &#60;link&#62;放置在&#60;head&#62;&#60;/head&#62;之间，而将JS &#60;script&#62;放置在&#60;/body&#62;之前？有没有例外的情况？
+    - Chrome浏览器的加载机制会出现白屏情况，在所有css文件加载完毕之前，会显示白屏
+    - Firefox浏览器的加载机制会出现FOUC现象，每加载一个css文件，页面的样式都会发生变化
+    - 将link放在head之间可以让页面逐步渲染，避免呈现给用户没有样式的内容
+    - 将script放在body尾部不会阻塞页面渲染
+
+9. 浏览器渲染机制？什么是回流（reflow）？什么是重绘（repaint）？
+    - https://zhuanlan.zhihu.com/p/163013732
+    - 回流是某个位置的布局发生了变化，浏览器会重新从根部开始计算该节点的布局
+    - 重绘是只改变页面元素的颜色、字体等不影响布局的属性
+
+10. 什么属性能让浏览器直接使用ES6 Module？
+    - &#60;script type="module"/&#62;
